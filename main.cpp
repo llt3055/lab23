@@ -3,7 +3,8 @@
 #include <iomanip>
 #include <list>
 #include "Goat.h"
-list<Goat> trip;
+#include <ctime>
+
 using namespace std;
 
 const int SZ_NAMES = 200, SZ_COLORS = 25, MAX_AGE = 20;
@@ -16,6 +17,7 @@ int main_menu();
 
 int main() {
     srand(time(0));
+    list<Goat> trip;
     bool again;
 
     // read & populate arrays for names and colors
@@ -94,7 +96,7 @@ void display_trip(list<Goat> trip) {
 }
 
 // Helper function to handle user selection with input validation
-int select_goat(list<Goat> ) {
+int select_goat(list<Goat> trip) {
     display_trip(trip);
     int sel;
     cout << "Select goat #: ";
