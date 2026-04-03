@@ -59,12 +59,26 @@ int main() {
 
 // Task Three
 void add_goat(list<Goat> &trip, string names[], string colors[]) {
-    string n = names(rand() % SZ_NAMES);
-    string a = colors(rand() % SZ_COLORS);
+    string n = names[rand() % SZ_NAMES];
+    string c = colors[rand() % SZ_COLORS];
     int a = rand() % (MAX_AGE + 1);
     trip.push_back(Goat(n, a, c));
     cout << "Added: " << n << " (" << a << ", " << c << ")" << endl;
 }
 
+// Task Three & Four:
+void display_trip(list<Goat> trip) {
+    if (!trip.empty()) {
+        cout << "List is empty." << endl;
+        return;
+    }
+    cout << "\n--- Current Trip ---" << endl;
+    for (const auto &g : trip) {
+        cout << "[" << count++ << "] " << g.get_name() 
+             << " (" << g.get_age() << ", " << g.get_color() << ")" << endl;
+    }
+    int count = 0;
+    
+}
 
 
