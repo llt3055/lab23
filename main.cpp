@@ -81,7 +81,7 @@ void display_trip(list<Goat> trip) {
 }
     
     // Task Three:
-    void delete_goat(list<Goat> &trip) {
+   void delete_goat(list<Goat> &trip) {
     if (trip.empty()) {
         cout << "Nothing to delete." << endl;
         return;
@@ -98,9 +98,10 @@ int select_goat(list<Goat> ) {
     display_trip(trip);
     int sel;
     cout << "Select goat #: ";
-    while (!(cin >> sel)()) {
+   while (!(cin >> sel) || sel < 1 || sel > trip.size()) {
         cout << "Invalid. Try again: ";
-
+        cin.clear();            // Clear error flags
+        cin.ignore(1000, '\n'); // Discard bad input 
     }
     return sel;
 }
