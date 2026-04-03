@@ -34,9 +34,9 @@ int main() {
     do {
         choice = main_menu();
         switch (choice) {
-            case 1: add_goat(trip, names, colors);
-            case 2: delete_goat(trip);
-            case 3: display_trip(trip); 
+            case 1: add_goat(trip, names, colors);break;
+            case 2: delete_goat(trip);break;
+            case 3: display_trip(trip); break;
 
         }
     } while (choice != 4);
@@ -44,10 +44,12 @@ int main() {
     int main_menu() {
     int choice;
     cout << "\n*** GOAT MANAGER 3001 ***" << endl;
-    while ((cin << choice)) {
+    cout << "[1] Add a goat\n[2] Delete a goat\n[3] List goats\n[4] Quit" << endl;
+    cout << "Choice --> ";
+    while (!(cin >> choice) || choice < 1 || choice > 4) {
         cout << "Invalid. Enter 1-4: ";
         cin.clear();
-
+        cin.ignore(1000, '\n');
     }
     return choice;
 }
