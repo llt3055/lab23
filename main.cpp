@@ -3,6 +3,7 @@
 #include <iomanip>
 #include <list>
 #include "Goat.h"
+list<Goat> trip;
 using namespace std;
 
 const int SZ_NAMES = 200, SZ_COLORS = 25, MAX_AGE = 20;
@@ -34,12 +35,14 @@ int main() {
     do {
         choice = main_menu();
         switch (choice) {
-            case 1: add_goat(trip, names, colors);break;
-            case 2: delete_goat(trip);break;
+            case 1: add_goat(trip, names, colors); break;
+            case 2: delete_goat(trip); break;
             case 3: display_trip(trip); break;
-
         }
     } while (choice != 4);
+
+    return 0;
+}
 
     int main_menu() {
     int choice;
@@ -53,6 +56,15 @@ int main() {
     }
     return choice;
 }
-    return 0;
+
+// Task Three
+void add_goat(list<Goat> &trip, string names[], string colors[]) {
+    string n = names(rand() % SZ_NAMES);
+    string a = colors(rand() % SZ_COLORS);
+    int a = rand() % (MAX_AGE + 1);
+    trip.push_back(Goat(n, a, c));
+    cout << "Added: " << n << " (" << a << ", " << c << ")" << endl;
 }
+
+
 
