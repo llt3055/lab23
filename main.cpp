@@ -29,7 +29,16 @@ int main() {
     while (fin1 >> colors[i++]);
     fin1.close();
 
-
+    // Task Two:Write a GM3K1 engine that loops on this menu
+    int choice;
+    do {
+        choice = main_menu();
+        switch (choice) {
+            case 1: add_goat(trip, names, colors);
+            case 2: display_trip(trip); 
+            case 3: delete_goat(trip);
+        }
+    } while (choice != 4);
 
 
     return 0;
