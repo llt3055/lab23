@@ -68,7 +68,7 @@ void add_goat(list<Goat> &trip, string names[], string colors[]) {
 
 // Task Three & Four:
 void display_trip(list<Goat> trip) {
-    if (!trip.empty()) {
+    if (trip.empty()) {
         cout << "List is empty." << endl;
         return;
     }
@@ -78,6 +78,7 @@ void display_trip(list<Goat> trip) {
         cout << "[" << count++ << "] " << g.get_name() 
              << " (" << g.get_age() << ", " << g.get_color() << ")" << endl;
     }
+}
     
     // Task Three:
     void delete_goat(list<Goat> &trip) {
@@ -86,10 +87,23 @@ void display_trip(list<Goat> trip) {
         return;
     }
     int index = select_goat(trip);
-    advance(it, index);
+    auto it = trip.begin();
+    advance(it, index - 1);
     cout << "Deleted: " << it->get_name() << endl;
+    trip.erase(it);
 }
 
+// Helper function to handle user selection with input validation
+int select_goat(list<Goat> ) {
+    display_trip(trip);
+    int sel;
+    cout << "Select goat #: ";
+    while (!(cin >> sel)()) {
+        cout << "Invalid. Try again: ";
+
+    }
+    return sel;
 }
+
 
 
