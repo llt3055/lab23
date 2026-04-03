@@ -72,13 +72,24 @@ void display_trip(list<Goat> trip) {
         cout << "List is empty." << endl;
         return;
     }
+    int count = 1;
     cout << "\n--- Current Trip ---" << endl;
     for (const auto &g : trip) {
         cout << "[" << count++ << "] " << g.get_name() 
              << " (" << g.get_age() << ", " << g.get_color() << ")" << endl;
     }
-    int count = 0;
     
+    // Task Three:
+    void delete_goat(list<Goat> &trip) {
+    if (trip.empty()) {
+        cout << "Nothing to delete." << endl;
+        return;
+    }
+    int index = select_goat(trip);
+    advance(it, index);
+    cout << "Deleted: " << it->get_name() << endl;
+}
+
 }
 
 
